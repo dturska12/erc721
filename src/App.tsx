@@ -350,6 +350,37 @@ export default function Home() {
                   contractMetadata.data?.name
                 )}
               </h1>
+              <h1 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
+                {contractMetadata.isLoading ? (
+                  <div
+                    role="status"
+                    className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
+                  >
+                    <div className="w-full">
+                      <div className="w-48 h-8 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    </div>
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                ) : (
+                  contractMetadata.data?.social_urls?.twitter || "No Twitter"
+                )}
+              </h1>
+              <h1 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
+                {contractMetadata.isLoading ? (
+                  <div
+                    role="status"
+                    className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
+                  >
+                    <div className="w-full">
+                      <div className="w-48 h-8 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    </div>
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                ) : (
+                  contractMetadata.data?.social_urls?.discord || "No Discord"
+                )}
+              </h1>
+              
               {contractMetadata.data?.description ||
                 contractMetadata.isLoading ? (
                   <div className="text-gray-500 line-clamp-2">
