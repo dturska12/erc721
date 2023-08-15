@@ -350,7 +350,7 @@ export default function Home() {
                   contractMetadata.data?.name
                 )}
               </h1>
-              <h1 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
+              <h3 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
                 {contractMetadata.isLoading ? (
                   <div
                     role="status"
@@ -362,10 +362,16 @@ export default function Home() {
                     <span className="sr-only">Loading...</span>
                   </div>
                 ) : (
-                  contractMetadata.data?.social_urls?.twitter || "No Twitter"
+                  <a
+                    href={contractMetadata.data?.social_urls?.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contractMetadata.data?.social_urls?.twitter || "No Twitter"}
+                  </a>
                 )}
-              </h1>
-              <h1 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
+              </h3>
+              <h3 className="text-2xl font-bold line-clamp-1 xs:text-3xl lg:text-4xl">
                 {contractMetadata.isLoading ? (
                   <div
                     role="status"
@@ -377,17 +383,23 @@ export default function Home() {
                     <span className="sr-only">Loading...</span>
                   </div>
                 ) : (
-                  contractMetadata.data?.social_urls?.discord || "No Discord"
+                  <a
+                    href={contractMetadata.data?.social_urls?.discord}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contractMetadata.data?.social_urls?.discord || "No Discord"}
+                  </a>
                 )}
-              </h1>
-              
+              </h3>
+
               {contractMetadata.data?.description ||
                 contractMetadata.isLoading ? (
-                  <div className="text-gray-500 line-clamp-2">
+                <div className="text-gray-500 line-clamp-2">
                   {contractMetadata.isLoading ? (
                     <div
                       role="status"
-                        className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
+                      className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
                     >
                       <div className="w-full">
                         <div className="mb-2.5 h-2 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
@@ -412,9 +424,9 @@ export default function Home() {
                   Drop is starting soon. Please check back later.
                 </span>
               ) : (
-                    <div className="flex flex-col w-full gap-4">
-                      <div className="flex flex-col w-full gap-4 lg:flex-row lg:items-center lg:gap-4 ">
-                        <div className="flex w-full px-2 border border-gray-400 rounded-lg h-11 dark:border-gray-800 md:w-full">
+                <div className="flex flex-col w-full gap-4">
+                  <div className="flex flex-col w-full gap-4 lg:flex-row lg:items-center lg:gap-4 ">
+                    <div className="flex w-full px-2 border border-gray-400 rounded-lg h-11 dark:border-gray-800 md:w-full">
                       <button
                         onClick={() => {
                           const value = quantity - 1;
@@ -426,12 +438,12 @@ export default function Home() {
                             setQuantity(value);
                           }
                         }}
-                            className="flex items-center justify-center h-full px-2 text-2xl text-center rounded-l-md disabled:cursor-not-allowed disabled:text-gray-500 dark:text-white dark:disabled:text-gray-600"
+                        className="flex items-center justify-center h-full px-2 text-2xl text-center rounded-l-md disabled:cursor-not-allowed disabled:text-gray-500 dark:text-white dark:disabled:text-gray-600"
                         disabled={isSoldOut || quantity - 1 < 1}
                       >
                         -
                       </button>
-                          <p className="flex items-center justify-center w-full h-full font-mono text-center dark:text-white lg:w-full">
+                      <p className="flex items-center justify-center w-full h-full font-mono text-center dark:text-white lg:w-full">
                         {!isLoading && isSoldOut ? "Sold Out" : quantity}
                       </p>
                       <button
@@ -490,7 +502,7 @@ export default function Home() {
                         <div role="status">
                           <svg
                             aria-hidden="true"
-                                className="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600 dark:text-gray-600"
+                            className="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600 dark:text-gray-600"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
